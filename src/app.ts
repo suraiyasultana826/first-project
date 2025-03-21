@@ -1,9 +1,15 @@
-const express = require('express')
-const app = express()
-const port = 3000
+import cors from 'cors'
+import express, { Application, Request, Response } from 'express'
+const app: Application = express()
+// const port = 3000
 
-app.get('/', (req, res) => {
+//parsers
+
+app.use(express.json())
+app.use(cors())
+
+app.get('/', (req:Request, res:Response) => {
   res.send('Hello World!')
 })
 
-console.log(process.cwd());
+export default app;
